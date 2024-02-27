@@ -1,20 +1,19 @@
-import React, { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import SearchIcon from '@mui/icons-material/Search';
 
-
 const Search = () => {
-
-    const [searchValue, setSearchValue] = useState("")
-
-    
+    const [searchValue, setSearchValue] = useState("");
 
     function handleSubmit(e) {
-        e.preventDefault()
-        let formData = new FormData(e.currentTarget)
-        console.log(formData)
+        e.preventDefault();
+        let formData = new FormData(e.currentTarget);
+        console.log(formData);
     }
 
+    function handleInputChange(e) {
+        setSearchValue(e.target.value);
+    }
 
     return (
         <>
@@ -26,11 +25,14 @@ const Search = () => {
                         </h1>
                         <form className='mt-4' onSubmit={handleSubmit}>
                             <div className="input-group">
-                                <input type='text'
+                                <input
+                                    type='text'
                                     className='form-control'
                                     name='search'
+                                    value={searchValue}
+                                    onChange={handleInputChange}
                                     placeholder='Search Items'
-                                 />
+                                />
                                 <div className="input-group-append">
                                     <button
                                         type='submit'
@@ -45,7 +47,7 @@ const Search = () => {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default Search
+export default Search;
