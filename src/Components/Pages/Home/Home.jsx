@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './Home.css'
 
-const Home = () => {
+const Home = ({ handleDetail, recipe_id }) => {
     return (
 
         <>
